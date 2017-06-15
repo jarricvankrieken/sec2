@@ -1,0 +1,36 @@
+﻿@model string
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="row">
+    <div class="col-md-6">
+        <h1>Versleutel</h1>
+        <form method="post" action='@Url.Action("Encrypt", "Home")'>
+            <div class="form-group">
+                <label class="control-label">Gebruikersnaam: </label>
+                <input class="form-control" type="text" name="userName" />
+                <label class="control-label">Wachtwoord: </label>
+                <input class="form-control" type="password" name="password" />
+                <label class="control-label">Geheime tekst: </label>
+                <textarea class="form-control" name="secretText"></textarea>
+                <br />
+                <button class="btn btn-default" type="submit">Encrypt</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <form method="post" action='@Url.Action("Decrypt", "Home")'>
+            <h1>Ontsleutel</h1>
+            <div class="form-group">
+                <label class="control-label">Gebruikersnaam: </label>
+                <input class="form-control" type="text" name="username" />
+                <label class="control-labe">Wachtwoord: </label>
+                <input class="form-control" type="password" name="password" />
+                <label class="control-label">Geheime tekst: </label>
+                <textarea class="form-control disabled" name="secretTextDecrypt" readonly>@Model</textarea>
+                <br />
+                <button class="btn btn-default" type="submit">Decrypt</button>
+            </div>
+        </form>
+    </div>
+</div>
